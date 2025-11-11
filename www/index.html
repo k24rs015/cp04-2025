@@ -38,6 +38,9 @@
         $('#btnC').click(function(e) {
             btnCClick(e);
         });
+        $('#btnD').click(function(e) {
+            btnDClick(e);
+        });
         init();
     });
     
@@ -161,7 +164,7 @@
         $('#btnA').prop('disabled', false);
         $('#btnB').prop('disabled', false);
         $('#btnC').prop('disabled', false);
-        
+        $('#btnD').prop('disabled', false);
     }
 
     // Alarmの処理
@@ -199,6 +202,17 @@
         $("#time").html("経過時間: 0");
         $("#remain").html("残り時間: " + period);
     }
+
+    function btnDClick(e){
+        active = false;
+        period = 5 * 60; 
+        startTime = new Date();     
+
+        active = true;
+        $("#time").html("経過時間: 0");
+        $("#remain").html("残り時間: " + period);
+        analog(period);
+    }
     
  
     // 繰り返し実行する処理
@@ -229,7 +243,10 @@
     <div id="time">Time</div>
     <button id="btnA">Start</button>  
     <button id="btnB">Stop</button>  
-    <button id="btnC">Set</button>  
+    <button id="btnC">Set</button> 
+
+    <button id="btnD">Break</button> 
+
     <input type="number" id="minute" value=25 >
     <input type="number" id="second" value=0 >
 </body>
